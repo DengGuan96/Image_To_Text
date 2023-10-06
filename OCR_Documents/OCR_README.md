@@ -26,6 +26,7 @@ To utilize this image recognition module, follow these steps:
 
 ## Notes
 
+- make sure to select the appropriate SDK in Android Studio by navigating to `File > Project Structure > Project SDK`.
 - This module focuses on recognizing text in Latin and japanese.
 - Remember to also modify the `minSdkVersion` in your `app/build.gradle` file to `21` to ensure compatibility with the image recognition features.
 - Add the dependencies for the ML Kit Android libraries to your module's app-level gradle file, which is usually app/build.gradle
@@ -46,3 +47,4 @@ dependencies {
   // To recognize Korean script
   implementation 'com.google.mlkit:text-recognition-korean:16.0.0'
 }
+
