@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_image_to_text/utils/utils.dart';
@@ -50,11 +51,16 @@ class _ImageToTextState extends State<ImageToText> {
       outputText = "";
     });
 
-    final textRecognizer = TextRecognizer(script: TextRecognitionScript.japanese);
+    final textRecognizer =
+        TextRecognizer(script: TextRecognitionScript.japanese);
     final RecognizedText recognizedText =
         await textRecognizer.processImage(inputImage);
 
     for (TextBlock block in recognizedText.blocks) {
+      List<Point<int>> blockCornerPoints = block.cornerPoints;
+      print(block.text);
+      // List of corner points of the text block in clockwise order starting with the top left point relative to the image in the default coordinate space.
+      print(blockCornerPoints);
       setState(() {
         outputText += block.text + "\n";
       });
